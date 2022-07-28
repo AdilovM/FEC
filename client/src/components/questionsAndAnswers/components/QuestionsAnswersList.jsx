@@ -98,7 +98,6 @@ const QuestionsAnswersList = (props) => {
               answer={[question.answers]}
               name={props.productInfo.name}
               update={props.update}
-              darkMode={props.darkMode}
             />
           ))}
         </div>
@@ -136,7 +135,6 @@ const QuestionsAnswersList = (props) => {
               answer={[question.answers]}
               name={props.productInfo.name}
               update={props.update}
-              darkMode={props.darkMode}
             />
           ))}
         </div>

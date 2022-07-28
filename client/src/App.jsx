@@ -48,12 +48,12 @@ class App extends React.Component {
     axios
       .post("/interaction", { element, widget, time })
       .then((res) => {
-        // console.log(
-        //   "user event successfully sent to interactions api: ",
-        //   res.status,
-        //   "event detail: ",
-        //   { element, widget, time }
-        // );
+        console.log(
+          "user event successfully sent to interactions api: ",
+          res.status,
+          "event detail: ",
+          { element, widget, time }
+        );
       })
       .catch((err) => {
         throw new Error("Tracking failed: ", err);
@@ -253,6 +253,7 @@ class App extends React.Component {
               product={this.state.productId}
               productInfo={this.state.productInfo}
               key={this.state.productId}
+              userTracker={this.userTracker.bind(this)}
             />
             <RatingsAndReviews
               productId={this.state.productId}

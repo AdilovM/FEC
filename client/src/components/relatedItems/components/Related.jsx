@@ -39,7 +39,7 @@ class Related extends React.Component {
             hour12: false,
           });
           let element = `Selectors: {LocalName: ${e.target.localName}, ClassName: ${e.target.className}, innerHTML: ${e.target.innerHTML}}`;
-          this.props.userTracker(element, "Related Widget", timeOfClick);
+          this.props.userTracker(element, "Questions and Answers", timeOfClick);
         }}
       >
         <div
