@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useState, useEffect } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import placeholder from "./../../../../public/placeholder.png";
 
 class OutfitCard extends React.Component {
   constructor(props) {
@@ -12,6 +13,9 @@ class OutfitCard extends React.Component {
   componentDidMount() {}
 
   render() {
+    var selectedPhoto = this.props.prodStyle[0].photos[0].url;
+    if (!selectedPhoto) selectedPhoto = placeholder;
+
     return (
       <div
         role="productIdUpdater"
@@ -19,11 +23,11 @@ class OutfitCard extends React.Component {
         onClick={(e) => {
           this.props.prodIDChanger(this.props.prodInfo[0].id);
           this.props.relatedItemsUpdater(this.props.prodInfo[0].id);
-          let timeOfClick = new Date().toLocaleString("en-US", {
-            hour12: false,
-          });
-          let element = `Selectors: {LocalName: ${e.target.localName}, ClassName: ${e.target.className}, innerHTML: ${e.target.innerHTML}}`;
-          this.props.userTracker(element, "Related-outfit Widget", timeOfClick);
+          // let timeOfClick = new Date().toLocaleString("en-US", {
+          //   hour12: false,
+          // });
+          // let element = `Selectors: {LocalName: ${e.target.localName}, ClassName: ${e.target.className}, innerHTML: ${e.target.innerHTML}}`;
+          // this.props.userTracker(element, "Related-outfit Widget", timeOfClick);
         }}
       >
         <div
@@ -31,7 +35,8 @@ class OutfitCard extends React.Component {
             height: "150px",
             width: "150px",
             marginBottom: "10px",
-            backgroundImage: `url(${this.props.prodStyle[0].photos[0].url})`,
+            objectFit: "cover",
+            backgroundImage: `url(${selectedPhoto})`,
             backgroundSize: "150px 150px",
             borderRadius: "10%",
           }}

@@ -35,11 +35,19 @@ class Related extends React.Component {
         role="comparisonModalToggler"
         onClick={(e) => {
           this.setState({ modalSeen: false });
+<<<<<<< HEAD
           let timeOfClick = new Date().toLocaleString("en-US", {
             hour12: false,
           });
           let element = `Selectors: {LocalName: ${e.target.localName}, ClassName: ${e.target.className}, innerHTML: ${e.target.innerHTML}}`;
           this.props.userTracker(element, "Questions and Answers", timeOfClick);
+=======
+          // let timeOfClick = new Date().toLocaleString("en-US", {
+          //   hour12: false,
+          // });
+          // let element = `Selectors: {LocalName: ${e.target.localName}, ClassName: ${e.target.className}, innerHTML: ${e.target.innerHTML}}`;
+          // this.props.userTracker(element, "Related Widget", timeOfClick);
+>>>>>>> 7b873aa6d4d773b4921e306325230d8bdcdeddc4
         }}
       >
         <div

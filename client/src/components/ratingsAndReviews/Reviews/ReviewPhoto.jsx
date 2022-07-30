@@ -22,7 +22,10 @@ class ReviewPhoto extends React.Component {
   render() {
     const thumbnailStyle = {
       width: '160px',
-      height: '108px'
+      height: '108px',
+      borderRadius: '15%',
+      objectFit: 'cover',
+      border: '1px solid'
     };
 
     let modalComponent;
@@ -42,7 +45,7 @@ class ReviewPhoto extends React.Component {
       <div>
         {modalComponent}
 
-        <img onClick={() => { this.showModalFunc(); }} style={thumbnailStyle} src={this.props.photo.url}/>&nbsp;
+        <img onClick={() => { this.showModalFunc(); }} style={thumbnailStyle} src={this.props.photo.url} alt='image sent by reviewer'/>&nbsp;
       </div>
     );
   }
