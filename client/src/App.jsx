@@ -93,26 +93,26 @@ class App extends React.Component {
     });
   }
 
-  getAllReviewsFunc() {
-    return axios.get("/reviews", {
-      params: { productId: this.state.productId },
-    });
-  }
+  // getAllReviewsFunc() {
+  //   return axios.get("/reviews", {
+  //     params: { productId: this.state.productId },
+  //   });
+  // }
 
-  getAllMetaFunc() {
-    return axios.get("/reviews/meta", {
-      params: { productId: this.state.productId },
-    });
-  }
+  // getAllMetaFunc() {
+  //   return axios.get("/reviews/meta", {
+  //     params: { productId: this.state.productId },
+  //   });
+  // }
 
   getProductInfo() {
-    return axios.post("/products/:product_id", {
+    return axios.get("api/products/:product_id", {
       params: { productId: this.state.productId },
     });
   }
 
   getProductStyles() {
-    return axios.post("/products/:product_id/styles", {
+    return axios.get("/products/:product_id/styles", {
       params: { productId: this.state.productId },
     });
   }
@@ -134,8 +134,8 @@ class App extends React.Component {
     Promise.all([
       this.getProductInfo(),
       this.getProductStyles(),
-      this.getAllReviewsFunc(),
-      this.getAllMetaFunc(),
+      // this.getAllReviewsFunc(),
+      // this.getAllMetaFunc(),
     ])
       .then((values) => {
         const reviewData = values[2].data;
@@ -160,7 +160,7 @@ class App extends React.Component {
 
         var styles = values[1].data.results;
         var defaultStyle = styles.find(
-          (product) => product["default?"] === true
+          (product) => product["default_price"] === true
         );
 
         if (defaultStyle === undefined) {

@@ -10,7 +10,7 @@ var expressStaticGzip = require("express-static-gzip");
 const app = express();
 const myAPIKey = process.env.myAPIKey;
 const data = require("./product.js");
-const port = 3000;
+const port = 3001;
 const baseAPI = "https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp";
 app.use(expressStaticGzip(__dirname + "/../client/public"));
 // app.use(express.static(__dirname + "/../client/public")); // KEEP

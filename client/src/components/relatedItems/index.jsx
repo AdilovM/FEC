@@ -61,45 +61,46 @@ class RelatedAndOutfit extends React.Component {
                 type: "GET",
                 url: `/products/${itemID}/styles`,
                 success: (relatedItemStyles) => {
-                  $.ajax({
-                    type: "GET",
-                    url: "/reviews/meta",
-                    data: { productId: itemID },
-                    success: (result) => {
-                      const ratings = result.ratings;
-                      let totalNumberOfRatings = 0;
-                      let totalRatings = 0;
-                      let rating;
+                  // $.ajax({
+                  //   type: "GET",
+                  //   url: "/reviews/meta",
+                  //   data: { productId: itemID },
+                  //   success: (result) => {
+                  //     const ratings = result.ratings;
+                  //     let totalNumberOfRatings = 0;
+                  //     let totalRatings = 0;
+                  //     let rating;
 
-                      if (!Object.keys(ratings)) {
-                        rating = 0;
-                      }
+                  //     if (!Object.keys(ratings)) {
+                  //       rating = 0;
+                  //     }
 
-                      for (var key in ratings) {
-                        totalNumberOfRatings += parseInt(ratings[key]);
-                        totalRatings += parseInt(key) * parseInt(ratings[key]);
-                      }
+                  //     for (var key in ratings) {
+                  //       totalNumberOfRatings += parseInt(ratings[key]);
+                  //       totalRatings += parseInt(key) * parseInt(ratings[key]);
+                  //     }
 
-                      rating = totalRatings / totalNumberOfRatings;
-                      rating = Math.round(10 * rating) / 10;
+                  //     rating = totalRatings / totalNumberOfRatings;
+                  //     rating = Math.round(10 * rating) / 10;
 
-                      relatedItemData.push({
-                        itemInfo: relatedItemInfo,
-                        itemStyles: relatedItemStyles,
-                        itemRating: rating,
-                      });
+                  //     relatedItemData.push({
+                  //       itemInfo: relatedItemInfo,
+                  //       itemStyles: relatedItemStyles,
+                  //       itemRating: rating,
+                  //     });
 
-                      this.setState({
-                        itemInfoAndStyle: relatedItemData,
-                      });
-                    },
-                    error: (err) => {
-                      throw new Error(
-                        "Retrieving metadata for related product failed (in relatedDataRequest function): ",
-                        err
-                      );
-                    },
-                  });
+                  //     this.setState({
+                  //       itemInfoAndStyle: relatedItemData,
+                  //     });
+                  //   },
+                  //   error: (err) => {
+                  //     throw new Error(
+                  //       "Retrieving metadata for related product failed (in relatedDataRequest function): ",
+                  //       err
+                  //     );
+                  //   },
+                  // });
+                  console.log('good');
                 },
                 error: (err) => {
                   throw new Error(

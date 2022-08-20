@@ -2,13 +2,14 @@ const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
 const myAPIKey = process.env.myAPIKey;
-const url = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp';
+const url = 'https://localhost:3001/api';
 
 const getProducts = (cb) => {
   const config = {
     method: 'GET',
-    url: url + '/products',
-    headers: { 'Authorization': myAPIKey}
+    url: url + '/products'
+
+    // headers: { 'Authorization': myAPIKey}
   };
   axios(config)
     .then((res) => {
@@ -23,8 +24,8 @@ const getProducts = (cb) => {
 const getProductInfo = (productId, cb) => {
   const config = {
     method: 'GET',
-    url: url + `/products/${productId}`,
-    headers: { 'Authorization': myAPIKey}
+    url: url + `/products/${productId}`
+    // headers: { 'Authorization': myAPIKey}
   };
   axios(config)
     .then((res) => {
@@ -39,8 +40,8 @@ const getProductInfo = (productId, cb) => {
 const getProductStyles = (productId, cb) => {
   const config = {
     method: 'GET',
-    url: url + `/products/${productId}/styles`,
-    headers: { 'Authorization': myAPIKey}
+    url: url + `/products/${productId}/styles`
+    // headers: { 'Authorization': myAPIKey}
   };
   axios(config)
     .then((res) => {
